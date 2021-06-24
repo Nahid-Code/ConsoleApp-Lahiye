@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HumanResource_Lahiye_isi_.Models;
 
+
 namespace HumanResource_Lahiye_isi_.Interface
 {
     interface IHumanResourceManager
@@ -16,6 +17,7 @@ namespace HumanResource_Lahiye_isi_.Interface
         void AddEmployee();
         void RemoveEmployee();
         void EditEmployee();
+        
 
     }
 }

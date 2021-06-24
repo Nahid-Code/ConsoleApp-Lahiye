@@ -10,14 +10,14 @@ namespace HumanResource_Lahiye_isi_.Services
 {
     class HumanResourceManager : IHumanResourceManager
     {
-        public List<Department> departments { get; set ; }
+        public List<Department> departments { get; set; }
         public HumanResourceManager()
         {
             departments = new List<Department>();
         }
+
         public void AddDepartment(Department department)
         {
-            
             departments.Add(department);
         }
 
@@ -45,5 +45,7 @@ namespace HumanResource_Lahiye_isi_.Services
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }
