@@ -16,9 +16,9 @@ namespace HumanResource_Lahiye_isi_.Services
             departments = new List<Department>();
         }
 
-        public void AddDepartment(Department department)
+        public void AddDepartment()
         {
-            departments.Add(department);
+            throw new NotImplementedException();
         }
 
         public void AddEmployee()

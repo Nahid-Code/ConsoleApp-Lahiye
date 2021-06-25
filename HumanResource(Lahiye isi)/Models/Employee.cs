@@ -10,6 +10,7 @@ namespace HumanResource_Lahiye_isi_.Models
     {
         public string No;
         public static int Count { get; set; } = 1000;
+
         public string Fullname;
         
         public string  Name { get; set; }
@@ -40,3 +41,4 @@ namespace HumanResource_Lahiye_isi_.Models
         }
     }
 }
+

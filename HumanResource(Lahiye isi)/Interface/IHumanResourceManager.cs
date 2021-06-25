@@ -11,7 +11,7 @@ namespace HumanResource_Lahiye_isi_.Interface
     interface IHumanResourceManager
     {
         List<Department> departments { get; set; }
-        void AddDepartment(Department department);     
+        void AddDepartment();     
         void GetDepartment();
         void EditDepartment();
         void AddEmployee();
