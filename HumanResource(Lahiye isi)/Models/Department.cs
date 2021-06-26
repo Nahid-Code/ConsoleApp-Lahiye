@@ -19,6 +19,8 @@ namespace HumanResource_Lahiye_isi_.Models
             Name = name;
             WorkerLimit = workerlimit;
             SalaryLimit = salarylimit;
+            Employees = new List<Employee>();
+
         }
 
         public Department()
@@ -40,6 +42,9 @@ namespace HumanResource_Lahiye_isi_.Models
 
         }
 
-        
+        internal object CalcSalaryAvarege()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

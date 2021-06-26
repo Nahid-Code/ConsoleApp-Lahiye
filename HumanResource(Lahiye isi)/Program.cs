@@ -50,7 +50,7 @@ namespace HumanResource_Lahiye_isi_
                         AddEmployee(humanResourceManager);
                         break;
                     case "2.4":
-                        EditEmployeea(humanResourceManager);
+                        EditEmployee(humanResourceManager);
                         break;
                     case "2.5":
                         RemoveEmployee(humanResourceManager);
@@ -68,7 +68,7 @@ namespace HumanResource_Lahiye_isi_
             
             foreach (Department item in humanResourceManager.departments)
             {               
-                Console.WriteLine(item.Name, item.Employees.Count, item.CalcSalaryAvarege(item.Employees));
+                Console.WriteLine($"Department name: {item.Name}, Salary limit:{item.SalaryLimit}, Worker limit:{item.WorkerLimit},Avarage Salary:{item.CalcSalaryAvarege()}, Employees Count: {item.Employees.Count}");
 
             }
         }
@@ -259,19 +259,26 @@ namespace HumanResource_Lahiye_isi_
             {
                 foreach (Employee employee in item.Employees)
                 {
-                    Console.WriteLine(employee.No,employee.Fullname,employee.DepartmentName,employee.Salary);
+                    Console.WriteLine($"{employee.No},{employee.Fullname},{employee.DepartmentName},{employee.Salary}");
                 }
             }
         }
         public static void ShowDepartmentEmployees(HumanResourceManager humanResourceManager)
         {
-            
-            Console.WriteLine("Iscilerin siyahsini gostermek istediyiniz departmentin adin yazin!!!");
+            Console.WriteLine("Iscilerin siyahsini gostermek istediyiniz departmentin adin yazin!");
             string departmentname = Console.ReadLine();
             Department department = humanResourceManager.departments.Find(x => x.Name == departmentname);
-            foreach (Employee item in department.Employees)
+            try
             {
-                Console.WriteLine(item.No,item.Name,item.Position,item.Salary);
+                foreach (Employee item in department.Employees)
+                {
+                    Console.WriteLine(item.No,item.Name,item.Surname,item.Position,item.Salary);
+                }
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Departmentin adini duz yazin");
             }
         }
         public static void AddEmployee(HumanResourceManager humanResourceManager)
@@ -338,7 +345,7 @@ namespace HumanResource_Lahiye_isi_
                         if (department!=null)
                         {
                             Employee newemployee = new Employee(newemployeename, newemployeesurname, newemployeeposition, newemployeesalary, department.Name);
-                        department.Employees.Add(newemployee);                       
+                            department.Employees.Add(newemployee);
                         }                      
                     }
                     else
@@ -354,7 +361,7 @@ namespace HumanResource_Lahiye_isi_
             }
             
         }
-        public static void EditEmployeea(HumanResourceManager humanResourceManager)
+        public static void EditEmployee(HumanResourceManager humanResourceManager)
         {
             bool noloop = true;
             bool newsalaryloop = true;
@@ -371,16 +378,16 @@ namespace HumanResource_Lahiye_isi_
                     foreach (Department item in humanResourceManager.departments)
                     {
                         Employee currentemployee = item.Employees.Find(x => x.No == editno);
-                        if (currentemployee!=null)
+                        if (currentemployee != null)
                         {
-                            Console.WriteLine($"{currentemployee.Fullname},{currentemployee.Salary},{currentemployee.Position}");
+                            Console.WriteLine(currentemployee.Fullname,currentemployee.Salary,currentemployee.Position);
                             Console.WriteLine("Iscinin yeni maasini daxil edin.");
                             while (newsalaryloop)
                             {
                                 try
                                 {
                                     newsalary = double.Parse(Console.ReadLine());
-                                    if (newsalary>=250)
+                                    if (newsalary >= 250)
                                     {
                                         currentemployee.Salary = newsalary;
                                         newsalaryloop = false;
@@ -401,7 +408,7 @@ namespace HumanResource_Lahiye_isi_
                                 try
                                 {
                                     newposition = Console.ReadLine();
-                                    if (string.IsNullOrEmpty(newposition)==false && newposition.Length>=2)
+                                    if (string.IsNullOrEmpty(newposition) == false && newposition.Length >= 2)
                                     {
                                         currentemployee.Position = newposition;
                                         newpositionloop = false;
@@ -417,10 +424,6 @@ namespace HumanResource_Lahiye_isi_
                                 }
                             }
                         }
-                        else
-                        {
-                            noloop = false;
-                        }
                     }
                 }
                 catch (Exception)
@@ -428,7 +431,7 @@ namespace HumanResource_Lahiye_isi_
 
                     Console.WriteLine("Duzgun Nomre daxil edin.");
                 }
-                
+                noloop = false;
             }
 
         }
@@ -446,7 +449,8 @@ namespace HumanResource_Lahiye_isi_
                     departmentname = Console.ReadLine();
                     if (string.IsNullOrEmpty(departmentname)==false && departmentname.Length>=2)
                     {
-                      Department removedepartment = humanResourceManager.departments.Find(x => x.Name == departmentname);                      
+                      Department removedepartment = humanResourceManager.departments.Find(x => x.Name == departmentname);
+                        Console.WriteLine("Ishcinin nomresini yazin");
                         while (noloop)
                         {
                             try
