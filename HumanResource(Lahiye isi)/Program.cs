@@ -272,7 +272,7 @@ namespace HumanResource_Lahiye_isi_
             {
                 foreach (Employee item in department.Employees)
                 {
-                    Console.WriteLine(item.No,item.Name,item.Surname,item.Position,item.Salary);
+                    Console.WriteLine($"{item.No},{item.Name},{item.Surname},{item.Position},{item.Salary}");
                 }
             }
             catch (Exception)
@@ -380,7 +380,7 @@ namespace HumanResource_Lahiye_isi_
                         Employee currentemployee = item.Employees.Find(x => x.No == editno);
                         if (currentemployee != null)
                         {
-                            Console.WriteLine(currentemployee.Fullname,currentemployee.Salary,currentemployee.Position);
+                            Console.WriteLine($"{currentemployee.Fullname},{currentemployee.Salary},{currentemployee.Position}");
                             Console.WriteLine("Iscinin yeni maasini daxil edin.");
                             while (newsalaryloop)
                             {

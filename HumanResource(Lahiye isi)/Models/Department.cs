@@ -36,6 +36,7 @@ namespace HumanResource_Lahiye_isi_.Models
             {
                 sum += item.Salary;               
             }
+            else
             avarage = sum / employees.Count;
             return avarage;
             //Departmentdeki Iscilerin maas ortalamasinin hesablanmasi
