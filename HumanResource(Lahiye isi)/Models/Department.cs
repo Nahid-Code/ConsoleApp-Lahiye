@@ -14,6 +14,7 @@ namespace HumanResource_Lahiye_isi_.Models
         public int  WorkerLimit { get; set; }
         public double SalaryLimit { get; set; }
         public List<Employee> Employees { get; set; }
+        //departmentdeki iscilerin siyahisi.
         public Department(string name ,int workerlimit,double salarylimit)
         {
             Name = name;
@@ -23,29 +24,30 @@ namespace HumanResource_Lahiye_isi_.Models
 
         }
 
-        public Department()
-        {
-        }
+        
 
-        public double CalcSalaryAvarege(List<Employee> employees)
+        public double CalcSalaryAvarege()
+            //Departmendeki Iscilerin orta maasini hesablayan method.
         {
-            double avarage=0;
-            double sum=0;
-            //Bura geri don Pervin Muellim problem boslug
-            foreach (Employee item in employees)
+            double avarage = 0;
+            double sum = 0;
+            foreach (Employee item in Employees)
             {
-                sum += item.Salary;               
+                sum += item.Salary;
+            }
+            if (Employees.Count != 0)
+            {
+                avarage = sum / Employees.Count;
+                return avarage;
             }
             else
-            avarage = sum / employees.Count;
-            return avarage;
-            //Departmentdeki Iscilerin maas ortalamasinin hesablanmasi
+            {
+                return 0;
+                //Department-de isci elave olunmadiqda console-da 0 gorsetsin.
+            }
 
         }
 
-        internal object CalcSalaryAvarege()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -9,7 +9,7 @@ namespace HumanResource_Lahiye_isi_.Models
     class Employee
     {
         public string No;
-        public static int Count { get; set; } = 1000;
+        public static int Count { get; set; } = 1000;       
 
         public string Fullname;
         
@@ -27,7 +27,7 @@ namespace HumanResource_Lahiye_isi_.Models
             Salary=salary;
             Count++;
             No = departmentname.ToString().Trim().ToUpper().Substring(0, 2) + Count.ToString();
-            //ilk 2 herfin gostersin deye
+            //ilk 2 herfin gostersin deye.
             DepartmentName=departmentname;
             Fullname = Name +" "+Surname;
             //FullName-i Name+Surname assign etdim ki , Name Surname teleb olunsun.
